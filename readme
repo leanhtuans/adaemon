@@ -1,0 +1,5 @@
+sudo mount -t vboxsf GEN11VCP ~/sharedfolder
+gcc ~/sharedfolder/source/baodaemon/baodaemon.c -lrt -o ~/sharedfolder/source/baodaemon/baodaemon
+gcc ~/sharedfolder/source/baodaemon/baorequester.c -lrt -o ~/sharedfolder/source/baodaemon/baorequester
+
+
