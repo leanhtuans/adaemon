@@ -1,5 +1,12 @@
-sudo mount -t vboxsf GEN11VCP ~/sharedfolder
+sudo mount -t vboxsf sharedfolder ~/sharedfolder
 gcc ~/sharedfolder/source/baodaemon/baodaemon.c -lrt -o ~/sharedfolder/source/baodaemon/baodaemon
 gcc ~/sharedfolder/source/baodaemon/baorequester.c -lrt -o ~/sharedfolder/source/baodaemon/baorequester
 
 
+tail --follow ~/baodaemon/baodaemon_logs.txt
+gcc ~/sharedfolder/source/baodaemon/baodaemon_sysV.c -lrt -o /home/tuanbao/baodaemon/bin/baodaemon_sysV
+gcc ~/sharedfolder/source/baodaemon/baodaemon_systemd.c -lrt -lsystemd -o /home/tuanbao/baodaemon/bin/baodaemon
+pstree -Ap
+pstree -Ap | grep baodaemon
+sudo cp ~/sharedfolder/source/baodaemon/baodaemon.service /lib/systemd/system/baodaemon.service
+sudo systemctl daemon-reload
